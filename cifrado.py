@@ -47,7 +47,7 @@ class VigenereCipherApp:
 
         # proceso de cifrado
         ciphertext = ''
-        for p, k in zip(plaintext, key_repeated):
+        for p, k in zip(plaintext, key_repeated): # p = letra del texto plano, k = letra de la clave 
             if p in self.alphabet:
                 # obtener el indice de la letra en el alfabeto
                 p_index = self.alphabet.index(p)
@@ -61,8 +61,11 @@ class VigenereCipherApp:
         return ciphertext
 
     def encrypt(self):
-        key = self.entry_key.get().strip()
-        plaintext = self.entry_text.get().strip()
+        key = self.entry_key.get().strip() # obtener la clave
+        plaintext = self.entry_text.get().strip() # obtener el texto plano
+
+        # Eliminar espacios del texto plano
+        plaintext = plaintext.replace(" ", "")
 
         # validacion de inputs
         if not key or not plaintext:
